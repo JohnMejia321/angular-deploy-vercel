@@ -1,0 +1,33 @@
+<div class="text-center mt-4">
+  <a class="btn btn-secondary" routerLink="/">Volver a la página de inicio</a>
+</div>
+
+<div class="d-flex align-items-center justify-content-center " style="height: 100vh;">
+  <div *ngFor="let receta of recetas" class="card border-primary" style="max-width: 18rem; margin: 10px;">
+    <div class="card-header">{{ receta.nombre }}</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Ingredientes</h5>
+      <ul>
+        <li *ngFor="let ingrediente of getIngredientes(receta.ingredientes)">
+          {{ ingrediente }}
+        </li>
+      </ul>
+      
+      
+      
+      <p class="card-text">{{ receta.descripcion }}</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+ 

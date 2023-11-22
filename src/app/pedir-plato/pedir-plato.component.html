@@ -1,0 +1,43 @@
+<div class="container pedir-plato-container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="text-center">¡Solicita tu plato!</h2>
+        </div>
+        <div class="card-body">
+          <p class="text-center">Haz clic en el botón para pedir un plato aleatorio.</p>
+          <button class="btn btn-primary btn-block" (click)="pedirPlato()">Pedir Plato</button>
+        </div>
+
+        <div *ngIf="mostrarSpinner" class="card-footer text-center">
+          <!-- Spinner para mostrar mientras se obtiene el plato -->
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p *ngIf="mensajePlazaMercado">{{ mensajePlazaMercado }}</p>
+          <p *ngIf="!mensajePlazaMercado">Pedido en orden, por favor espera...</p>
+        </div>
+
+        <div *ngIf="!mostrarSpinner && mostrarCard">
+          <!-- Aquí se mostrará el plato aleatorio después de obtenerlo -->
+          <div class="card-footer">
+            <h4 class="text-center">Nombre del Plato: {{ platoPedido.nombre }}</h4>
+            <p class="text-center">Descripción: {{ platoPedido.descripcion }}</p>
+            <h4 class="text-center">Ingredientes:</h4>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let ingrediente of platoPedido.ingredientes">
+                {{ ingrediente.nombre }} ({{ ingrediente.cantidad }}) unidades
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <a class="btn btn-secondary" routerLink="/">Volver a la página de inicio</a>
+  </div>
+</div>

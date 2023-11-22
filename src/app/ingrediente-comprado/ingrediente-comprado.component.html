@@ -1,0 +1,16 @@
+<!-- ingrediente-comprado.component.html -->
+<div class="text-center mt-4">
+    <a class="btn btn-secondary" routerLink="/">Volver a la página de inicio</a>
+  </div>
+  
+<div class="container mt-4">
+    <h2 class="mb-4">Ingredientes Comprados en Plaza de Mercado</h2>
+  
+    <div *ngFor="let ingrediente of faltantes" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ ingrediente.nombre }}</h5>
+        <p class="card-text">Cantidad Comprada: {{ ingrediente.cantidad }}</p>
+      </div>
+    </div>
+  </div>
+  

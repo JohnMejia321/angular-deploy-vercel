@@ -1,0 +1,22 @@
+<div class="text-center mt-4">
+  <a class="btn btn-secondary" routerLink="/">Volver a la página de inicio</a>
+</div>
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Historial de Pedidos</h2>
+    <div *ngFor="let pedido of historialPedidos" class="card mb-3">
+      <div class="card-header">
+        <h4>{{ pedido.nombre }}</h4>
+      </div>
+      <div class="card-body">
+        <p>{{ pedido.descripcion }}</p>
+        <h5>Ingredientes:</h5>
+        <ul>
+          <li *ngFor="let ingrediente of pedido.ingredientes">
+            {{ ingrediente.nombre }} ({{ ingrediente.cantidad }}) unidades
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
