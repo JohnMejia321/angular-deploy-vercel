@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RestauranteService {
-  private baseUrl: string = 'http://localhost:8000/api/api'; // Reemplaza con la URL de tu backend
+  private baseUrl: string = 'https://deploy-laravel-rail-production.up.railway.app/api/api'; // Reemplaza con la URL de tu backend
 
   constructor(private http: HttpClient) { }
 
@@ -15,17 +15,14 @@ export class RestauranteService {
   }
 
   hacerPedido(): Observable<any> {
-    // Puedes agregar más lógica aquí según tu backend
     return this.http.get(`${this.baseUrl}`, {});
   }
 
   verRecetas(): Observable<any> {
-    // Puedes agregar más lógica aquí según tu backend
-    return this.http.get("http://localhost:8000/api/data", {});
+    return this.http.get("https://deploy-laravel-rail-production.up.railway.app/api/data", {});
   }
 
   verFaltantes(): Observable<any> {
-    // Puedes agregar más lógica aquí según tu backend
-    return this.http.get("http://localhost:8000/api/faltante", {});
+    return this.http.get("https://deploy-laravel-rail-production.up.railway.app/api/faltante", {});
   }
 }
